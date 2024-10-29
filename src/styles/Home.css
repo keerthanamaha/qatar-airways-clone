@@ -1,0 +1,84 @@
+.Banner{
+    background-image: url('../images/background-image.jpg');
+    height: 480px;
+    box-shadow: inset 640px 100px 60px rgba(0, 0, 0, 0.5);
+}
+.Content{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 150px;
+    margin-right: 200px;
+}
+.Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo{
+    padding-right: 20px;
+}
+.ow{
+    padding-right:5px;
+}
+.NavbarContent{
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    padding-right: 20px;
+}
+.Search{
+    width: 200px;
+    display: flex;
+    justify-content: flex-end;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+.LoginContainer{
+display: flex;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+color: white;
+font-weight: bold;
+}
+.search{
+    height: 24px;
+    width: 24px;
+    padding: 13px;
+}
+.HeroContent{
+    margin-top: 100px;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Aria, Helvetica, sans-serif;
+    font-size: 18px;
+    color: white;
+}
+.HeroContent p , .HeroContent h1{
+    margin : 0;
+}
+.HeroContent h1{
+    color: white;
+    text-align: start;
+}
+
+.BookButton{
+    width: 140px;
+    height: 60px;
+    border-radius: 30px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}

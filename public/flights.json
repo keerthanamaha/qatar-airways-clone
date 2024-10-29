@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "airline": "Airline A",
+        "from": "New York",
+        "to": "Los Angeles",
+        "departure": "2024-11-10",
+        "departureTime": "10:00 AM",
+        "return": "2024-11-17",
+        "returnTime": "3:30 PM",
+        "class": "Economy",
+        "stops": 0,
+        "price": 200
+    },
+    {
+        "id": 2,
+        "airline": "Airline A",
+        "from": "New York",
+        "to": "Los Angeles",
+        "departure": "2024-11-10",
+        "departureTime": "3:30 PM",
+        "return": "2024-11-17",
+        "returnTime": "8:00 PM",
+        "class": "Economy",
+        "stops": 1,
+        "price": 350
+    },
+    {
+        "id": 3,
+        "airline": "Airline B",
+        "from": "New York",
+        "to": "Los Angeles",
+        "departure": "2024-11-10",
+        "departureTime": "8:00 PM",
+        "return": "2024-11-17",
+        "returnTime": "10:00 AM",
+        "class": "Economy",
+        "stops": 2,
+        "price": 600
+    },
+    {
+        "id": 4,
+        "airline": "Airline C",
+        "from": "Chicago",
+        "to": "Miami",
+        "departure": "2024-11-10",
+        "departureTime": "8:00 AM",
+        "return": "2024-11-17",
+        "returnTime": "9:30 AM",
+        "class": "Economy",
+        "stops": 0,
+        "price": 150
+    },
+    {
+        "id": 5,
+        "airline": "Airline D",
+        "from": "Chicago",
+        "to": "Miami",
+        "departure": "2024-11-10",
+        "departureTime": "11:30 AM",
+        "return": "2024-11-17",
+        "returnTime": "6:45 PM",
+        "class": "Business",
+        "stops": 1,
+        "price": 300
+    },
+    {
+        "id": 6,
+        "airline": "Airline C",
+        "from": "San Francisco",
+        "to": "Seattle",
+        "departure": "2024-11-10",
+        "departureTime": "9:00 AM",
+        "return": "2024-11-17",
+        "returnTime": "2:15 PM",
+        "class": "First Class",
+        "stops": 0,
+        "price": 500
+    }
+]

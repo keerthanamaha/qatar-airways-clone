@@ -1,0 +1,90 @@
+/* src/styles/Ticket.css */
+
+.ticket-container {
+    max-width: 600px; /* Maximum width for the ticket summary */
+    margin: 30px auto; /* Center the ticket summary */
+    padding: 20px; /* Padding around the ticket summary */
+    background-color: #ffffff; /* Background color for the ticket summary */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    font-family: Arial, sans-serif; /* Font for the summary */
+}
+
+h2 {
+    text-align: center;
+    color: #007BFF; /* Primary color for headings */
+    margin-bottom: 20px;
+}
+
+.flight-details,
+.passenger-details {
+    margin-bottom: 30px; /* Space between sections */
+}
+
+h3 {
+    color: #333; /* Darker color for section headers */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007BFF; /* Underline for section headers */
+    padding-bottom: 5px; /* Padding below the header */
+}
+
+.detail-item {
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between label and value */
+    padding: 10px 0; /* Padding for each detail item */
+    border-bottom: 1px solid #e0e0e0; /* Bottom border for detail items */
+}
+
+.detail-item:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+span {
+    color: #555; /* Color for detail values */
+}
+
+.button-container {
+    display: flex; /* Flexbox for buttons */
+    justify-content: space-between; /* Space between buttons */
+    margin-top: 20px; /* Margin on top of buttons */
+}
+
+button {
+    background-color: #007BFF; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size for button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+    flex: 1; /* Make buttons flexible */
+    margin-right: 10px; /* Space between buttons */
+}
+
+button:last-child {
+    margin-right: 0; /* Remove right margin for the last button */
+}
+
+.download-button {
+    background-color: #28a745; /* Green color for download button */
+}
+
+.download-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover for other button */
+}
+
+@media (max-width: 768px) {
+    .ticket-container {
+        margin: 15px; /* Reduce margins on smaller screens */
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    button {
+        font-size: 14px; /* Smaller button text on mobile */
+    }
+}

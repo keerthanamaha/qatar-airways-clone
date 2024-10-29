@@ -1,0 +1,53 @@
+/* PassengerDetails.css */
+.passenger-details-container {
+    max-width: 800px; /* Limit the maximum width */
+    margin: 20px auto; /* Center align */
+    padding: 20px; /* Add padding */
+    background-color: #f5f5f5; /* Light gray background for container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.passenger-info-card {
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding for the card */
+    margin-top: 20px; /* Space above the card */
+}
+
+h1, h2 {
+    color: #333; /* Dark text color */
+    text-align: center; /* Center align the headings */
+}
+
+label {
+    display: block; /* Each label on a new line */
+    margin: 10px 0; /* Margin for spacing */
+}
+
+input, select, textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside input */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    margin-top: 5px; /* Space above input */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+.confirm-button {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer on hover */
+    margin-top: 15px; /* Margin above button */
+    transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.confirm-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

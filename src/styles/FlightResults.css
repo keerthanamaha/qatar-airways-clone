@@ -1,0 +1,86 @@
+body {
+    background-color: #f0f4f8; /* Light background color for the page */
+    font-family: Arial, sans-serif; /* Set a clean font for the page */
+}
+
+.results-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Center align text */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.flights-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center flight cards */
+}
+
+.flight-card {
+    background-color: white; /* White background for flight cards */
+    border: 2px solid transparent; /* Initially transparent border for class color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    padding: 15px;
+    margin: 10px 0;
+    width: 100%; /* Full width */
+    max-width: 600px; /* Maximum width for flight cards */
+    transition: transform 0.2s; /* Smooth scaling effect */
+}
+
+.flight-card:hover {
+    transform: scale(1.02); /* Scale up on hover */
+}
+
+.flight-info {
+    margin-bottom: 10px; /* Space below flight info */
+}
+
+.flight-route p,
+.flight-timing p,
+.flight-stops p,
+.flight-price p {
+    margin: 5px 0; /* Margin for each line */
+}
+
+.select-button {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.select-button.selected {
+    background-color: #28a745; /* Green when selected */
+}
+
+.select-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.next-button {
+    background-color: #007bff; /* Blue background for the next button */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    cursor: pointer; /* Pointer on hover */
+    margin-top: 20px; /* Margin above next button */
+}
+
+.next-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.flight-info i {
+    margin-right: 5px; /* Space between icon and text */
+    color: #007bff; /* Icon color */
+}
