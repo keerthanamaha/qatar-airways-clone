@@ -1,86 +1,262 @@
-body {
-    background-color: #f0f4f8; /* Light background color for the page */
-    font-family: Arial, sans-serif; /* Set a clean font for the page */
+/* CSS */
+.container {
+    background-color: rgb(242, 242, 242);
+    position: relative;
+    z-index: 99;
 }
 
-.results-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center; /* Center align text */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 32px;
 }
 
-h1 {
-    margin-bottom: 20px;
-    color: #333;
+.header-left {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    white-space: nowrap;
 }
 
-.flights-list {
+.header-center {
+    display: flex;
+    justify-content: center;  /* Center the inner div horizontally */
+    align-items: center;      /* Center the inner div vertically */
+    flex-grow: 1;
+    padding: 8px;
+    margin-left: 70px;
+    margin-right: 70px;
+    border: 2px solid rgb(201, 211, 213);  /* Solid 2px border */
+    border-radius: 30px;  /* Rounded corners */
+}
+
+.header-center-inner {
+    display: flex;
+    justify-content: space-between; /* Space out the divs inside */
+    width: 100%; /* Ensure full width inside the header-center */
+}
+
+
+.to-fro-arrow {
+    width: 20px;
+    height: auto;
+    filter: brightness(0) saturate(100%) contrast(100%) sepia(1) hue-rotate(-35deg) saturate(5); /* Adjust to match the theme */
+    mix-blend-mode: multiply;  /* Blends with background */
+}
+
+.header-right {
+    text-align: right;
+}
+
+.back-button {
+    color: rgb(81, 15, 15);
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.logo, .ow {
+    height: auto;
+    margin-left: 10px;
+    filter: brightness(0) saturate(100%) contrast(100%) sepia(1) hue-rotate(-35deg) saturate(5);
+    mix-blend-mode: multiply;  /* Blends with background */
+}
+
+.login-button {
+    background: none;
+    color: rgb(81, 15, 15);
+    border: 2px solid rgb(81, 15, 15);
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    color: white;
+    background-color: rgb(81, 15, 15);  /* On hover */
+    border-color: rgb(81, 15, 15);
+}
+.center-div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    border-right: 1px solid rgb(81, 15, 15); /* Adds a right border */
+    white-space: nowrap;  /* Prevent text from wrapping */
+}
+.center-div:last-child {
+    border-right: none; /* Remove border for the last .center-div */
+}
+
+.center-div span {
+    font-size: 18px;
+    color: rgb(81, 15, 15);
+    white-space: nowrap;  /* Ensure no wrapping of the date text */
+}
+.modify-search-button {
+    background : none;
+    color: rgb(81, 15, 15);;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.modify-search-button i {
+    margin-right: 8px;
+}
+.content {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center flight cards */
+    gap: 20px; /* Adds space between the two divs */
+    padding: 20px;
+}
+
+.content-div {
+    background-color: white;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+}
+
+.content-div h3 {
+    font-size: 18px;
+    color: rgb(39, 33, 33);/* Match with the color theme */
+    margin: 0;
+}
+.content-div h6 {
+    font-size: 40px;
+    color: rgb(39, 33, 33); /* Match with the color theme */
+    margin:0;
+}
+.from-city {
+    color: rgb(81, 15, 15); /* Blue color for the 'from' city */
+}
+
+.to-city {
+    color: rgb(81, 15, 15); /* Orange color for the 'to' city */
+}
+.flight-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
 }
 
 .flight-card {
-    background-color: white; /* White background for flight cards */
-    border: 2px solid transparent; /* Initially transparent border for class color */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    padding: 15px;
-    margin: 10px 0;
-    width: 100%; /* Full width */
-    max-width: 600px; /* Maximum width for flight cards */
-    transition: transform 0.2s; /* Smooth scaling effect */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
 }
 
 .flight-card:hover {
-    transform: scale(1.02); /* Scale up on hover */
+    transform: scale(1.02);
 }
 
-.flight-info {
-    margin-bottom: 10px; /* Space below flight info */
+.flight-details {
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    gap: 50px;
 }
 
-.flight-route p,
-.flight-timing p,
-.flight-stops p,
-.flight-price p {
-    margin: 5px 0; /* Margin for each line */
+.Departure-time, .Arrival-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.select-button {
-    background-color: #007bff; /* Blue background */
-    color: white; /* White text */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 15px; /* Padding for the button */
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover */
+.time {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
 }
 
-.select-button.selected {
-    background-color: #28a745; /* Green when selected */
+.airport-code {
+    font-size: 0.9rem;
+    color: #555;
+    text-transform: uppercase;
 }
 
-.select-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.flight-route {
+    display: flex;
+    align-items: center;
+    color: #888;
+    font-size: 0.9rem;
 }
 
-.next-button {
-    background-color: #007bff; /* Blue background for the next button */
-    color: white; /* White text */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding */
-    cursor: pointer; /* Pointer on hover */
-    margin-top: 20px; /* Margin above next button */
+.stops {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #444;
 }
 
-.next-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.stops i {
+    color: #888;
 }
 
-.flight-info i {
-    margin-right: 5px; /* Space between icon and text */
-    color: #007bff; /* Icon color */
+.flight-prices {
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
+
+.price-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 120px;
+    height: 60px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.price-button:hover {
+    background-color: #e6e6e6;
+    border-color: #ccc;
+}
+
+.class-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.price {
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.price-button:active {
+    background-color: #d4d4d4;
+}
+
+/* Icons and transition */
+.fa-arrow-right {
+    margin: 0 5px;
+    color: #888;
+    font-size: 0.8rem;
+}
+
+

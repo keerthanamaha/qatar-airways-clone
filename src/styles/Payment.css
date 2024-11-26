@@ -1,0 +1,118 @@
+/* Full-screen background */
+.payment-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2c3e50; /* Dark background for the whole page */
+    padding: 0 20px;
+  }
+
+  /* Card styling */
+  .payment-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 400px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .payment-card-header {
+    text-align: center;
+  }
+
+  .payment-title {
+    color: black;
+    margin-bottom: 20px;
+  }
+
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-label {
+    color: black;
+  }
+
+  .input-field {
+    padding-left: 12px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    color: black;
+    transition: border-color 0.3s;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: bisque;
+  }
+
+  .input-field::placeholder {
+    color: grey;
+  }
+
+  .icon-group-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .icon-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .icon-group input {
+    width: 100%;
+  }
+
+  .icon {
+    margin-left: 8px;
+  }
+
+  .row-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .row-group .form-group {
+    flex-basis: 48%; /* Ensures both fields take up equal width */
+  }
+
+  .submit-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font: var(--text1regular);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+
+  .submit-btn.disabled {
+    background-color: grey;
+    opacity: 0.6;
+  }
+
+  .submit-btn:hover {
+    background-color: #c0392b;
+  }
+
+  .verify-info {
+    text-align: center;
+    margin-top: 15px;
+  }

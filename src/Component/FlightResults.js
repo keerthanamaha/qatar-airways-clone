@@ -1,109 +1,158 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import ow from '../images/ow.svg';
+import logo from '../images/logo.svg';
 import '../styles/FlightResults.css';
+import { mockFlightData } from '../mock/mockFlightData';
+import { mockFlightDataReturn } from '../mock/mockFlightDataReturn';  // Import the return flight mock data
+import Header from './Header';
 
 function Results() {
     const location = useLocation();
     const navigate = useNavigate();
-    const [flights, setFlights] = useState([]);
-    const [filteredFlights, setFilteredFlights] = useState([]);
-    const [selectedFlights, setSelectedFlights] = useState([]);
+    const formData = location.state;
+    const { from, to, departure, return: returnDate, passengers } = formData || {};
+    const [selectedOutboundFlight, setSelectedOutboundFlight] = useState(null);
 
-    // Memoizing searchCriteria with default values
-    const searchCriteria = useMemo(() => ({
-        from: location.state?.from || 'New York',
-        to: location.state?.to || 'Los Angeles',
-        departure: location.state?.departure || '2024-11-10',
-        return: location.state?.return || '2024-11-17',
-        options: location.state?.options || 'round-trip',
-        class: location.state?.class || 'Economy'
-    }), [location.state]);
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const options = { weekday: 'short', day: 'numeric', month: 'short' };
+        return date.toLocaleDateString('en-US', options);
+    };
 
-    useEffect(() => {
-        // Fetch flight data
-        fetch('/flights.json')
-            .then((response) => response.json())
-            .then((data) => setFlights(data))
-            .catch((error) => console.error('Error fetching flight data:', error));
-    }, []);
+    const formatTime = (dateString) => {
+        const date = new Date(dateString);
+        return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+    };
 
-    useEffect(() => {
-        // Filter flights based on search criteria
-        const results = flights.filter(flight => {
-            const fromMatch = searchCriteria.from ? flight.from.toLowerCase() === searchCriteria.from.toLowerCase() : true;
-            const toMatch = searchCriteria.to ? flight.to.toLowerCase() === searchCriteria.to.toLowerCase() : true;
-            const departureMatch = searchCriteria.departure ? flight.departure === searchCriteria.departure : true;
-            const returnMatch = searchCriteria.options === 'one-way' ? !searchCriteria.return : flight.return === searchCriteria.return;
-            const classMatch = searchCriteria.class ? flight.class.toLowerCase() === searchCriteria.class.toLowerCase() : true;
+    const formattedDeparture = departure ? formatDate(departure) : '';
+    const formattedReturn = returnDate ? formatDate(returnDate) : '';
 
-            return fromMatch && toMatch && departureMatch && returnMatch && classMatch;
+    const selectedDate = selectedOutboundFlight ? returnDate : departure;
+    const selectedDateObject = new Date(selectedDate);
+    selectedDateObject.setHours(0, 0, 0, 0);
+
+    const extractCityName = (cityString) => cityString.split(',')[0].trim().toLowerCase();
+
+    // Use both outbound and return flights data
+    const availableFlights = useMemo(() => {
+        const data = selectedOutboundFlight ? mockFlightDataReturn.Flights : mockFlightData.Flights;  // Choose the right data set based on outbound selection
+
+        const fromCity = selectedOutboundFlight ? to : from;
+        const toCity = selectedOutboundFlight ? from : to;
+
+        return data.filter(flight => {
+            const flightDate = new Date(flight.departureTime);
+            const dateMatch = flightDate.toLocaleDateString('en-CA') === selectedDateObject.toLocaleDateString('en-CA');
+            const fromCityMatch = flight.from.trim().toLowerCase() === extractCityName(fromCity.city);
+            const toCityMatch = flight.to.trim().toLowerCase() === extractCityName(toCity.city);
+
+            return fromCityMatch && toCityMatch && dateMatch;
         });
+    }, [from, to, selectedOutboundFlight, selectedDateObject]);
 
-        setFilteredFlights(results);
-    }, [flights, searchCriteria]);
+    const formatPrice = (price) => price.toLocaleString();
 
-    const handleFlightSelect = (flightId) => {
-        setSelectedFlights((prevSelected) =>
-            prevSelected.includes(flightId)
-                ? prevSelected.filter(id => id !== flightId)
-                : [...prevSelected, flightId]
-        );
-    };
+    const handleFlightClassSelection = (flight, selectedClass) => {
+        const fromCityDetails = {
+            city: from.city,
+            country: from.country,
+            code: from.code,
+            airport: from.airport,
+        };
 
-    const handleNext = () => {
-        if (selectedFlights.length === 0) {
-            alert("Please select at least one flight to proceed.");
-            return;
-        }
-        const selectedFlightDetails = filteredFlights.filter(flight => selectedFlights.includes(flight.id));
-        navigate('/passenger-details', { state: { selectedFlightDetails } });
-    };
+        const toCityDetails = {
+            city: to.city,
+            country: to.country,
+            code: to.code,
+            airport: to.airport,
+        };
+            // Number of passengers
+    const numberOfPassengers = passengers;
+    console.log(formData)
 
-    const getColorForClass = (classType) => {
-        switch (classType.toLowerCase()) {
-            case 'economy':
-                return '#6c757d'; // Gray
-            case 'business':
-                return '#007bff'; // Blue
-            case 'first class':
-                return '#28a745'; // Green
-            default:
-                return '#6c757d'; // Default gray
+        if (!selectedOutboundFlight && returnDate) {
+            setSelectedOutboundFlight({ flight, selectedClass });
+        } else {
+            navigate('/return-flight', {
+                state: {
+                    outboundFlight: selectedOutboundFlight,
+                    returnFlight: { flight, selectedClass },
+                    formData
+                },
+            });
         }
     };
 
     return (
-        <div className="results-container">
-            <h1>Available Flights</h1>
-            <div className="flights-list">
-                {filteredFlights.length > 0 ? (
-                    filteredFlights.map(flight => (
-                        <div key={flight.id} className={`flight-card ${selectedFlights.includes(flight.id) ? 'selected' : ''}`} style={{ borderColor: getColorForClass(flight.class) }}>
-                            <div className="flight-info">
-                                <div className="flight-airline"><strong>{flight.airline}</strong></div>
-                                <div className="flight-route">
-                                    <p><i className="fas fa-plane-departure"></i> {flight.from} ➔ {flight.to}</p>
+        <div className="container">
+              <Header
+                from={from}
+                to={to}
+                departure={departure}
+                returnDate={returnDate}
+                passengers={passengers}
+            />
+            <div className="content">
+                <div className="content-div">
+                    <h3>{formattedDeparture ? formattedDeparture : 'Loading Departure Date...'}</h3>
+                </div>
+                <div className="content-div">
+                    {from && to ? (
+                        <h6>
+                            Select your {selectedOutboundFlight ? 'return' : 'departure'} flight from
+                            <span className="from-city"> {extractCityName(selectedOutboundFlight ? to.city : from.city)} </span>
+                            to <span className="to-city"> {extractCityName(selectedOutboundFlight ? from.city : to.city)}</span>
+                        </h6>
+                    ) : (
+                        <h6>Loading flight details...</h6>
+                    )}
+                </div>
+                <div className="flight-cards">
+                    {availableFlights.length > 0 ? (
+                        availableFlights.map(flight => (
+                            <div className="flight-card" key={flight.flightNumber}>
+                                <div className="flight-details">
+                                    <div className="Departure-time">
+                                        <div className="time">{formatTime(flight.departureTime)}</div>
+                                        <div className="airport-code">{selectedOutboundFlight ? to.code : from.code}</div>
+                                    </div>
+                                    <div className="flight-route">
+                                        <p className="stops">
+                                            <i className="fa fa-arrow-right"></i> <i className="fa fa-plane"></i> Stops: {flight.stops} <i className="fa fa-arrow-right"></i>
+                                        </p>
+                                    </div>
+                                    <div className="Arrival-time">
+                                        <div className="time">{formatTime(flight.arrivalTime)}</div>
+                                        <div className="airport-code">{selectedOutboundFlight ? from.code : to.code}</div>
+                                    </div>
                                 </div>
-                                <div className="flight-timing">
-                                    <p><i className="fas fa-clock"></i> {flight.departure} at {flight.departureTime} | Return: {flight.return} at {flight.returnTime}</p>
+                                <div>
+                                    <img className="logo" src={logo} alt="logo" />
                                 </div>
-                                <div className="flight-stops">
-                                    <p><i className="fas fa-exchange-alt"></i> {flight.stops} Stop{flight.stops !== 1 ? 's' : ''}</p>
-                                </div>
-                                <div className="flight-price">
-                                    <p><strong>Price: ${flight.price.toFixed(2)}</strong></p>
+                                <div className="flight-prices">
+                                    <button
+                                        className="price-button"
+                                        onClick={() => handleFlightClassSelection(flight, 'Economy')}
+                                    >
+                                        <span className="class-label">Economy</span>
+                                        <span className="price">${formatPrice(flight.economyPrice)}</span>
+                                    </button>
+                                    <button
+                                        className="price-button"
+                                        onClick={() => handleFlightClassSelection(flight, 'Business')}
+                                    >
+                                        <span className="class-label">Business</span>
+                                        <span className="price">${formatPrice(flight.businessPrice)}</span>
+                                    </button>
                                 </div>
                             </div>
-                            <button className={`select-button ${selectedFlights.includes(flight.id) ? 'selected' : ''}`} onClick={() => handleFlightSelect(flight.id)}>
-                                Select
-                            </button>
-                        </div>
-                    ))
-                ) : (
-                    <p>No flights available for the selected criteria.</p>
-                )}
+                        ))
+                    ) : (
+                        <p>No flights available for the selected route.</p>
+                    )}
+                </div>
             </div>
-            <button onClick={handleNext} className="next-button">Next</button>
         </div>
     );
 }

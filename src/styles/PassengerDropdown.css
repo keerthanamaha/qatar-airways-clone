@@ -1,0 +1,63 @@
+.Passenger-overlay {
+    position: absolute;
+    top: 100%; /* Position right below the button */
+    left: 0;
+    width: 250px; /* Adjust width as needed */
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 15px;
+    z-index: 100; /* Ensures overlay appears above other elements */
+}
+
+.Passenger-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.Passenger-options h4 {
+    border-bottom: 2px solid #8e2157; /* Border below the heading */
+}
+
+.Passenger-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Passenger-options label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    flex-basis: 60%; /* Adjust as needed */
+}
+
+.Passenger-options input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+}
+
+
+.Passenger-options select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.Passenger-options button {
+    background-color: #8e2157;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.Passenger-options button:hover {
+    background-color: #701841;
+}

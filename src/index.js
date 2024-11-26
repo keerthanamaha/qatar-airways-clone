@@ -7,8 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import Home from './Component/Home';
 import Search from './Component/Search';
 import Results from './Component/FlightResults';
-import PassengerDetails from './Component/PassengerDetails';
 import Ticket from './Component/Ticket';
+import 'font-awesome/css/font-awesome.min.css';
+import ReturnFlight from './Component/ReturnFlight';
+import Payment from './Component/Payment';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +19,8 @@ root.render(
       <Routes>
         <Route path="/" element={<><Home /><Search /></>} />
         <Route path="/results" element={<Results />} />
-        <Route path="/passenger-details" element={<PassengerDetails />} />
+        <Route path="/return-flight" element={<ReturnFlight />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/ticket" element={<Ticket />} />
       </Routes>
     </Router>

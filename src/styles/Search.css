@@ -1,3 +1,70 @@
+/* Error message styling */
+.Error-message {
+    color: red;
+    font-size: 12px; /* Smaller text */
+    margin-top: 5px; /* Space between the input field and the error message */
+    position: absolute; /* Position it below the input field */
+    bottom: -20px; /* Adjust the position as needed */
+    left: 10px;
+
+}
+/* Container for the search input fields */
+.Journey-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative; /* Position relative to the input fields */
+}
+
+/* Container for the airport suggestions */
+.Airport-suggestions {
+    position: absolute;
+    top: 100%; /* Position below the input field */
+    width: 20%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px; /* Limit the height of the suggestions */
+    overflow-y: auto; /* Enable scrolling if the list is long */
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+}
+
+/* Individual airport suggestion items */
+.Airport-option {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+/* Highlight airport suggestion on hover */
+.Airport-option:hover {
+    background-color: #f0f0f0;
+}
+
+/* Style for the input fields */
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Ensure the suggestions are hidden if the input is empty */
+.Airport-suggestions.hidden {
+    display: none;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+}
+
 .SearchContainer {
     width: 1139px;
     height: 300px; /* Adjusts height dynamically based on content */
@@ -41,10 +108,15 @@ form{
     height: 100%;
 }
 .Radio{
-    height: 100%;
     display: flex;
     align-items: center;
     margin: 10px;
+}
+.Radio label {
+    display: flex;
+    align-items: center; /* Aligns radio button and text vertically */
+    margin-right: 20px; /* Adds space between radio buttons */
+    white-space: nowrap;
 }
 .Journey-details {
     display: flex;
@@ -58,12 +130,12 @@ form{
     margin: 0 10px; /* Adds horizontal space between blocks */
 }
 
-.Return-block {
+.Return-block , .Passenger-class-block{
     flex: 1; /* Allows blocks to grow equally */
     margin: 0 10px; /* Adds horizontal space between blocks */
 }
 
-input[type="text"], input[type="date"], select {
+input[type="text"], input[type="date"], select,.Passenger-button{
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -80,7 +152,6 @@ input[type="radio"] {
 }
 
 label {
-    margin-bottom: 5px; /* Adds space between label and input */
     font-weight: bold;
 
 }
@@ -108,3 +179,6 @@ label {
 .Search-button:hover {
     background-color: #701841; /* Darken button on hover */
 }
+
+
+

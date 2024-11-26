@@ -7,11 +7,11 @@ function Home() {
     return (
         <div>
             <div className='Banner'>
-                <div className='Content'>
-                <div className='Header'>
+                <div className='Content-home'>
+                <div className='Header-home'>
                     <div className='LeftContent'>
-                        <img className="logo" src={logo} alt='logo'></img>
-                        <img className="ow" src={ow} alt='logo'></img>
+                        <img className="logo1" src={logo} alt='logo'></img>
+                        <img className="ow1" src={ow} alt='logo'></img>
                     </div>
                     <div className='NavbarContent'>
                         <p className='Explore'>Explore</p>

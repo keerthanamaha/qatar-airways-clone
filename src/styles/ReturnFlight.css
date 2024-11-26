@@ -1,0 +1,168 @@
+/* ReturnFlight.css */
+
+.return-flight-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.return-flight-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    gap: 20px; /* Added gap to create space between left and right content */
+}
+
+.left-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.left-content p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.passenger-card {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.passenger-card h5 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.right-content {
+    flex: 1.5;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flight-summary-card {
+    margin-top: 20px;
+}
+
+.summary-section {
+    margin-bottom: 20px;
+}
+
+.summary-section h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 14px;
+}
+
+.section-content div {
+    flex: 1;
+}
+
+.section-content p {
+    margin: 5px 0;
+}
+
+.flight-info p {
+    font-size: 14px;
+}
+
+.total p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2a9d8f;
+}
+
+.payment {
+    margin-top: 20px;
+}
+
+.payment p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.payment-button {
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.payment-button:hover {
+    background-color: #1f7a69;
+}
+/* Disabled button state */
+.payment-button:disabled {
+    background-color: #c6c6c6;  /* Light grey background */
+    color: #8c8c8c;             /* Grey text color */
+    cursor: not-allowed;       /* Change cursor to indicate it's not clickable */
+    opacity: 0.7;               /* Slightly transparent to show disabled state */
+  }
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .return-flight-content {
+        flex-direction: column;
+    }
+
+    .left-content,
+    .right-content {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .section-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-content div {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+}
