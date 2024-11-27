@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,  useCallback} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/ReturnFlight.css';
 import '../styles/FlightResults.css';
@@ -26,7 +26,7 @@ export default function ReturnFlight() {
     }, [initialPassengers]);
 
     // Generate passenger details based on the number of passengers
-    const generatePassengerForms = () => {
+    const generatePassengerForms = useCallback(() => {
         return Array.from({ length: passengers }, (_, index) => ({
             id: index + 1,
             name: '',
@@ -34,7 +34,7 @@ export default function ReturnFlight() {
             phone: '',
             foodPreference: '',
         }));
-    };
+    }, [passengers]); // Dependency on 'passengers'
 
     // Get passenger details form
     const [passengerDetails, setPassengerDetails] = useState(generatePassengerForms());
@@ -42,7 +42,7 @@ export default function ReturnFlight() {
     // Add 'generatePassengerForms' as a dependency for the useEffect
     useEffect(() => {
         setPassengerDetails(generatePassengerForms());
-    }, [passengers, generatePassengerForms]);  // <-- Added generatePassengerForms here
+    }, [generatePassengerForms]);  // <-- Added generatePassengerForms here
 
     // Handle passenger details change
     const handlePassengerChange = (index, field, value) => {

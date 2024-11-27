@@ -31,7 +31,7 @@ function Results() {
         const dateObj = new Date(selectedDate);
         dateObj.setHours(0, 0, 0, 0);
         return dateObj;
-    }, [selectedOutboundFlight, departure, returnDate]);
+    }, [selectedDate]);
 
     const extractCityName = (cityString) => cityString.split(',')[0].trim().toLowerCase();
 
