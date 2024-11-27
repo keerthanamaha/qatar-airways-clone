@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import ow from '../images/ow.svg';
 import logo from '../images/logo.svg';
 import '../styles/FlightResults.css';
 import { mockFlightData } from '../mock/mockFlightData';
@@ -54,22 +53,6 @@ function Results() {
     const formatPrice = (price) => price.toLocaleString();
 
     const handleFlightClassSelection = (flight, selectedClass) => {
-        const fromCityDetails = {
-            city: from.city,
-            country: from.country,
-            code: from.code,
-            airport: from.airport,
-        };
-
-        const toCityDetails = {
-            city: to.city,
-            country: to.country,
-            code: to.code,
-            airport: to.airport,
-        };
-            // Number of passengers
-    const numberOfPassengers = passengers;
-    console.log(formData)
 
         if (!selectedOutboundFlight && returnDate) {
             setSelectedOutboundFlight({ flight, selectedClass });

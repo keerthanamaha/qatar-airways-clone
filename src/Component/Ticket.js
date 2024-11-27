@@ -5,7 +5,6 @@ import "jspdf-autotable"; // Import the autoTable plugin
 import Header from './Header';
 import '../styles/FlightResults.css';
 import '../styles/Ticket.css';
-import logo from '../images/logo.svg';
 
 function Ticket() {
     const location = useLocation();
