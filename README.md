@@ -83,11 +83,13 @@ Before running the project, make sure you have the following installed:
 3. Install dependencies:
    ```bash
    npm install
-or if you're using Yarn:
-yarn install
-5. Run the development server:
+4. if you're using Yarn:
+   ```bash
+   yarn install
+6. Run the development server:
    ```bash
       npm start
-      or with Yarn:
+7. if you are using  Yarn:
+   ```bash
       yarn start
 Open the app in your browser at http://localhost:3000.
