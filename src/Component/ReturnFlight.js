@@ -39,9 +39,10 @@ export default function ReturnFlight() {
     // Get passenger details form
     const [passengerDetails, setPassengerDetails] = useState(generatePassengerForms());
 
+    // Add 'generatePassengerForms' as a dependency for the useEffect
     useEffect(() => {
         setPassengerDetails(generatePassengerForms());
-    }, [passengers]);
+    }, [passengers, generatePassengerForms]);  // <-- Added generatePassengerForms here
 
     // Handle passenger details change
     const handlePassengerChange = (index, field, value) => {

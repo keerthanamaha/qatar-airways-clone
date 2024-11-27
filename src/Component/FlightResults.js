@@ -25,11 +25,13 @@ function Results() {
     };
 
     const formattedDeparture = departure ? formatDate(departure) : '';
-    const formattedReturn = returnDate ? formatDate(returnDate) : '';
 
     const selectedDate = selectedOutboundFlight ? returnDate : departure;
-    const selectedDateObject = new Date(selectedDate);
-    selectedDateObject.setHours(0, 0, 0, 0);
+    const selectedDateObject = useMemo(() => {
+        const dateObj = new Date(selectedDate);
+        dateObj.setHours(0, 0, 0, 0);
+        return dateObj;
+    }, [selectedOutboundFlight, departure, returnDate]);
 
     const extractCityName = (cityString) => cityString.split(',')[0].trim().toLowerCase();
 
@@ -53,7 +55,6 @@ function Results() {
     const formatPrice = (price) => price.toLocaleString();
 
     const handleFlightClassSelection = (flight, selectedClass) => {
-
         if (!selectedOutboundFlight && returnDate) {
             setSelectedOutboundFlight({ flight, selectedClass });
         } else {
