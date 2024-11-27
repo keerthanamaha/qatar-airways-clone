@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Qatar Clone Flight Booking Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a flight booking application that mimics the booking flow of Qatar Airways. The application allows users to search for flights, select outbound and return flights (for round-trip bookings), enter passenger details, view the booking summary, proceed to payment, and download the ticket. All data is mocked for development and demonstration purposes.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### **1. User-friendly Home Page:**
+- Option to select between **one-way** or **round-trip** flights.
+- **Mock flight search functionality** to display available flights based on selected dates and destinations.
+- Interactive flight selection for both **outbound** and **return flights** (if round-trip is selected).
+- Smart selection interface to display mocked flight availability based on user input for departure and destination airports.
 
-### `npm start`
+### **2. Passenger Details Form:**
+- **Easy-to-fill passenger details** form (name, contact details, age, and food preferences).
+- **Dynamic form validation** to ensure data accuracy (e.g., validating phone numbers, email addresses, and age restrictions).
+- **Real-time input checks** for user convenience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **3. Comprehensive Flight Summary:**
+- Detailed summary of the selected flights, including:
+  - **Flight numbers** for both outbound and return flights.
+  - **Departure and arrival times** in both local time and time zone.
+  - **Flight class** (Economy or Business) and corresponding prices.
+  - **Flight duration** and any **layovers** or **direct flights**.
+- **Dynamic price calculation** that adjusts based on flight selection and passenger details.
+  
+### **4. Payment Gateway:**
+- **Mock payment flow** to demonstrate the booking process.
+- Display of **total price** including taxes, fees, and any discounts or offers.
+  
+### **5. Ticket Download Feature:**
+- After mock payment confirmation, **generate a downloadable flight ticket** with detailed booking information such as:
+  - **Ticket number** and **booking reference**.
+  - **Passenger information** and selected flight details.
+  - **QR code** for easy check-in or ticket validation (if applicable).
+  
+### **6. Flight Filters:**
+- **Flight filters** to help users refine their search based on mocked criteria such as:
+  - Price range.
+  - Flight duration.
+  - Number of stops (direct or connecting flights).
+  - Airlines or flight operators.
+  
+### **7. Responsive and Mobile-Friendly Design:**
+- Fully responsive design ensuring that the app works seamlessly across devices (desktops, tablets, and smartphones).
+- Optimized UI/UX for quick navigation and smooth interaction on all screen sizes.
+  
+### **8. Smooth and Seamless Navigation:**
+- **React Router** for easy navigation between different steps of the flight booking process:
+  - Home page (flight search).
+  - Flight selection.
+  - Passenger details.
+  - Payment and ticket download.
+- **State persistence** across pages to ensure user inputs are saved (e.g., flight selections, passenger details).
+  
+### **9. Performance Optimization:**
+- Optimized for **fast load times** and **smooth performance** using tools like **React.memo**, lazy loading for images and components, and efficient state management with **React Context**.
+- **Optimized images** for flight listings and destinations to ensure the app loads quickly.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **10. Mock Data Integration:**
+- All flight data is **mocked** for the purpose of this demo, including:
+  - **Flight availability** (mock flight details such as destinations, dates, prices).
+  - **Flight details** (flight numbers, timings, prices, etc.).
+  - **Passenger information** (user details, contact information).
+  - **Payment details** (mock payment flow to demonstrate functionality).
+  
+## Project Setup
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Before running the project, make sure you have the following installed:
 
-### `npm run build`
+- **Node.js** (v14 or later)
+- **npm** or **yarn** for package management
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Steps to Run the Project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone this repository to your local machine:
+   ```bash
+   git clone https://github.com/keerthanamaha/qatar-airways-clone
+2. Navigate into the project directory:
+   ```bash
+   cd qatar-clone
+3. Install dependencies:
+   ```bash
+   npm install
+or if you're using Yarn:
+yarn install
+5. Run the development server:
+   ```bash
+      npm start
+      or with Yarn:
+      yarn start
+Open the app in your browser at http://localhost:3000.
