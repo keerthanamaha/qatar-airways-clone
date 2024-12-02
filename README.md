@@ -33,18 +33,11 @@ This is a flight booking application that mimics the booking flow of Qatar Airwa
   - **Passenger information** and selected flight details.
   - **QR code** for easy check-in or ticket validation (if applicable).
   
-### **6. Flight Filters:**
-- **Flight filters** to help users refine their search based on mocked criteria such as:
-  - Price range.
-  - Flight duration.
-  - Number of stops (direct or connecting flights).
-  - Airlines or flight operators.
-  
-### **7. Responsive and Mobile-Friendly Design:**
+### **6. Responsive and Mobile-Friendly Design:**
 - Fully responsive design ensuring that the app works seamlessly across devices (desktops, tablets, and smartphones).
 - Optimized UI/UX for quick navigation and smooth interaction on all screen sizes.
   
-### **8. Smooth and Seamless Navigation:**
+### **7. Smooth and Seamless Navigation:**
 - **React Router** for easy navigation between different steps of the flight booking process:
   - Home page (flight search).
   - Flight selection.
@@ -52,11 +45,11 @@ This is a flight booking application that mimics the booking flow of Qatar Airwa
   - Payment and ticket download.
 - **State persistence** across pages to ensure user inputs are saved (e.g., flight selections, passenger details).
   
-### **9. Performance Optimization:**
+### **8. Performance Optimization:**
 - Optimized for **fast load times** and **smooth performance** using tools like **React.memo**, lazy loading for images and components, and efficient state management with **React Context**.
 - **Optimized images** for flight listings and destinations to ensure the app loads quickly.
 
-### **10. Mock Data Integration:**
+### **9. Mock Data Integration:**
 - All flight data is **mocked** for the purpose of this demo, including:
   - **Flight availability** (mock flight details such as destinations, dates, prices).
   - **Flight details** (flight numbers, timings, prices, etc.).
